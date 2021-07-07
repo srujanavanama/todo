@@ -3,9 +3,9 @@ const router = express.Router()
 const db = require('../database')
 
 router.get('/', (req,res) => {
-    db.any('SELECT * FROM todos')
+    db.any('SELECT * FROM todos ORDER BY id DESC')
     .then(data => {
-        console.log(data)
+        // console.log(data)
         res.render('index', {
             todos: data
         })
@@ -18,7 +18,9 @@ router.get('/', (req,res) => {
 router.post('/newtodo', (req,res) => {
     db.none('INSERT INTO todos(content) VALUES ($1)', req.body.content)
     .then(() => {
-        res.redirect('/')
+        // console.log(req.body)
+        res.send(req.body)
+        // res.redirect('/')
     })
     .catch((err) => {
         res.send(err)
