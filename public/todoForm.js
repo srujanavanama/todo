@@ -10,9 +10,19 @@ $("#new-todo-form").submit((event) => {
             content: newTodo
         }
     })
-    .done(data => {
-        // console.log(data)
-        $("#todo-list").prepend(`<li>${data.content}</li>`)
+    .done(submittedTodo => {
+        // console.log(submittedTodo)
+        // $("#todo-list").prepend(`<li>${submittedTodo.content}</li>`)
+        $.getJSON('/api/all-todos')
+        .then(allTodos => {
+            // console.log(allTodos)
+            const lastTodo = allTodos[allTodos.length - 1]
+            console.log(lastTodo)
+            $("#todo-list").prepend(`<li id="todo-${lastTodo.id}">${lastTodo.content}</li>`)
+        })
+        .catch(err => {
+            console.log(err)
+        })
         $("#todo").val("")
     })
     .fail(err => {

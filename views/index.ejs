@@ -19,7 +19,7 @@
         </form>
         <ul id="todo-list">
             <% for(let i=0; i<todos.length; i++) { %>
-                <li>
+                <li id="todo-<%=todos[i].id%>">
                     <%= todos[i].content %>
                 </li>
             <% } %>
