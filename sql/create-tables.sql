@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS todos;
+
+CREATE TABLE IF NOT EXISTS todos (
+    id SERIAL PRIMARY KEY,
+    content VARCHAR(255) NOT NULL,
+    complete BOOLEAN NOT NULL DEFAULT false
+);
