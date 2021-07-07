@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Todo</title>
+    </head>
+    <body>
+        <h1>Todo App</h1>
+        <form method="POST" action="/newtodo">
+            <div>
+                <label for="todo">Insert new Todo</label>
+                <input id="todo" type="text" name="content">
+            </div>
+            <button>Add todo</button>
+        </form>
+        <ul>
+            <% for(let i=0; i<todos.length; i++) { %>
+                <li>
+                    <%= todos[i].content %>
+                </li>
+            <% } %>
+        </ul>
+    </body>
+</html>

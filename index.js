@@ -3,7 +3,7 @@ const app = express()
 const morgan = require('morgan')
 
 // require routes
-
+const homeRouter = require('./routes/index')
 
 const PORT = process.env.PORT || 3000
 
@@ -22,6 +22,7 @@ app.set(morgan('dev'))
 
 
 // mount routers
+app.use('/', homeRouter)
 
 app.listen(PORT, () => {
     console.log(`Great job! Your app is listening at http://localhost:3000`)
