@@ -2,10 +2,15 @@
     <head>
         <meta charset="UTF-8">
         <title>Todo</title>
+        <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+        <script src="/todoForm.js" defer></script>
     </head>
     <body>
         <h1>Todo App</h1>
-        <form method="POST" action="/newtodo">
+        <form id="new-todo-form" method="POST" action="/newtodo">
             <div>
                 <label for="todo">Insert new Todo</label>
                 <input id="todo" type="text" name="content">
